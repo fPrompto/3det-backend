@@ -1,4 +1,5 @@
-import desvantagens from "./desvantagens.js";
+import desvantagens from './desvantagens.js';
+import test from './test.js';
 
 const COMMANDS = {
   // Simple test command
@@ -6,7 +7,7 @@ const COMMANDS = {
     name: 'test',
     description: 'Comando básico para teste',
     type: 1,
-    function: '',
+    function: test,
   },
   DESVANTAGENS: {
     name: 'desvantagens',

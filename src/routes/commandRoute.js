@@ -9,7 +9,6 @@ import {
 } from 'discord-interactions';
 
 import COMMAND from '../commands/index.js';
-import getRandomEmoji from '../utils/getRandomEmoji.js';
 
 const router = express.Router();
 
@@ -36,12 +35,13 @@ router.post('/', async function (req, res) {
 
     // "test" guild command
     if (name === 'test') {
+      const command = COMMAND.TEST.function();
       // Send a message into the channel where command was triggered from
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           // Fetches a random emoji to send from a helper function
-          content: 'hello world ' + getRandomEmoji(),
+          content: command.message,
         },
       });
     }
