@@ -1,19 +1,12 @@
 import 'dotenv/config';
 import express from 'express';
-import {
-  InteractionType,
-  InteractionResponseType,
-  InteractionResponseFlags,
-  MessageComponentTypes,
-  ButtonStyleTypes,
-} from 'discord-interactions';
+import bodyParser from 'body-parser';
 
 import COMMAND from './commands/index.js';
 import hasGuildCommands from './utils/hasGuildCommand.js';
 import verifyDiscordRequest from './utils/verifyDiscordRequest.js';
-import getRandomEmoji from './utils/getRandomEmoji.js';
 
-import bodyParser from 'body-parser';
+import commandRoute from './routes/commandRoute.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,51 +18,7 @@ app.use(express.json({ verify: verifyDiscordRequest(process.env.PUBLIC_KEY) }));
 // Store for in-progress games. In production, you'd want to use a DB
 // const activeGames = {};
 
-/**
- * Interactions endpoint URL where Discord will send HTTP requests
- */
-app.post('/interactions', async function (req, res) {
-  // Interaction type and data
-  const { type, id, data } = req.body;
-
-  /**
-   * Handle verification requests
-   */
-  if (type === InteractionType.PING) {
-    return res.send({ type: InteractionResponseType.PONG });
-  }
-
-  /**
-   * Handle slash command requests
-   * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
-   */
-  if (type === InteractionType.APPLICATION_COMMAND) {
-    const { name } = data;
-
-    // "test" guild command
-    if (name === 'test') {
-      // Send a message into the channel where command was triggered from
-      return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          // Fetches a random emoji to send from a helper function
-          content: 'hello world ' + getRandomEmoji(),
-        },
-      });
-    }
-
-    if (name === 'desvantagens') {
-      const command = COMMAND.DESVANTAGENS.function();
-
-      return res.send({
-        type: InteractionResponseType.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          content: command.message,
-        },
-      });
-    }
-  }
-});
+app.use('/interactions', commandRoute);
 
 app.get('/test', (_req, res) => {
   return res.status(200).json('ok!');
