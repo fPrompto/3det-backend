@@ -50,7 +50,7 @@ router.post('/', async function (req, res) {
       const command = COMMAND.DESVANTAGENS.function();
 
       return res.send({
-        type: InteractionResponseType.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE,
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           content: command.message,
         },
