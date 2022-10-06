@@ -11,6 +11,7 @@ import {
 import COMMAND from './commands/index.js';
 import hasGuildCommands from './utils/hasGuildCommand.js';
 import verifyDiscordRequest from './utils/verifyDiscordRequest.js';
+import getRandomEmoji from './utils/getRandomEmoji.js';
 
 import bodyParser from 'body-parser';
 
