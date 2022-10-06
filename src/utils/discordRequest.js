@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import fetch from 'node-fetch';
 
 async function discordRequest(endpoint, options) {
   // append endpoint to root API URL
