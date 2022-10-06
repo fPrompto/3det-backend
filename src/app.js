@@ -57,6 +57,17 @@ app.post('/interactions', async function (req, res) {
         },
       });
     }
+
+    if (name === 'desvantagens') {
+      const command = COMMAND.DESVANTAGENS.function();
+
+      return res.send({
+        type: InteractionResponseType.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: command.message,
+        },
+      });
+    }
   }
 });
 
@@ -70,5 +81,6 @@ app.listen(PORT, () => {
   // Check if guild commands from commands.js are installed (if not, install them)
   hasGuildCommands(process.env.APP_ID, process.env.GUILD_ID, [
     COMMAND.TEST,
+    COMMAND.DESVANTAGENS,
   ]);
 });

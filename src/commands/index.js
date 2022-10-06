@@ -1,3 +1,5 @@
+import desvantagens from "./desvantagens.js";
+
 const COMMANDS = {
   // Simple test command
   TEST: {
@@ -5,6 +7,12 @@ const COMMANDS = {
     description: 'Comando básico para teste',
     type: 1,
     function: '',
+  },
+  DESVANTAGENS: {
+    name: 'desvantagens',
+    description: 'Lista todas as desvantagens',
+    type: 1,
+    function: desvantagens,
   },
 };
 
