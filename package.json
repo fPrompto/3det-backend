@@ -1,0 +1,29 @@
+{
+  "name": "3det-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fPrompto/3det-backend.git"
+  },
+  "author": "Fernando F Monteiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fPrompto/3det-backend/issues"
+  },
+  "homepage": "https://github.com/fPrompto/3det-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "discord-interactions": "^3.2.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "node-fetch": "^3.2.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
