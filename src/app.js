@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
 
-import COMMAND from './commands/index.js';
+import COMMAND from './services/index.js';
 import hasGuildCommands from './utils/hasGuildCommand.js';
 import verifyDiscordRequest from './utils/verifyDiscordRequest.js';
 

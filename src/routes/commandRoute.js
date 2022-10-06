@@ -8,7 +8,7 @@ import {
   ButtonStyleTypes,
 } from 'discord-interactions';
 
-import COMMAND from '../commands/index.js';
+import COMMAND from '../services/index.js';
 
 const router = express.Router();
 
