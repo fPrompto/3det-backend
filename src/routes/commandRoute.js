@@ -35,7 +35,7 @@ router.post('/', async function (req, res) {
 
     // "test" guild command
     if (name === 'test') {
-      const command = COMMAND.TEST.function();
+      const command = await COMMAND.TEST.function();
       // Send a message into the channel where command was triggered from
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
@@ -47,7 +47,7 @@ router.post('/', async function (req, res) {
     }
 
     if (name === 'desvantagens') {
-      const command = COMMAND.DESVANTAGENS.function();
+      const command = await COMMAND.DESVANTAGENS.function();
 
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
