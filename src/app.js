@@ -31,5 +31,6 @@ app.listen(PORT, () => {
   hasGuildCommands(process.env.APP_ID, process.env.GUILD_ID, [
     COMMAND.TEST,
     COMMAND.DESVANTAGENS,
+    COMMAND.DETALHES_DESVANTAGEM,
   ]);
 });

@@ -15,7 +15,7 @@ const router = express.Router();
 /**
  * Interactions endpoint URL where Discord will send HTTP requests
  */
-router.post('/', async function (req, res) {
+router.post('/', async (req, res) => {
   // Interaction type and data
   const { type, id, data } = req.body;
 
@@ -48,6 +48,20 @@ router.post('/', async function (req, res) {
 
     if (name === 'desvantagens') {
       const command = await COMMAND.DESVANTAGENS.function();
+
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: command.message,
+        },
+      });
+    }
+
+    if (name === 'desvantagem') {
+      // User's object choice
+      const objectName = req.body.data.options[0].value;
+
+      const command = await COMMAND.DETALHES_DESVANTAGEM.function(objectName);
 
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,

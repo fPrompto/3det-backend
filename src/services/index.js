@@ -1,5 +1,6 @@
 import desvantagens from './desvantagens.js';
 import test from './test.js';
+import detalhesDesvantagem from './detalhesDesvantagem.js';
 
 const COMMANDS = {
   // Simple test command
@@ -14,6 +15,12 @@ const COMMANDS = {
     description: 'Lista todas as desvantagens',
     type: 1,
     function: desvantagens,
+  },
+  DETALHES_DESVANTAGEM: {
+    name: 'desvantagem',
+    description: 'Exibe os detalhes de uma desvantagem',
+    type: 1,
+    function: detalhesDesvantagem,
   },
 };
 
